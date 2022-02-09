@@ -41,6 +41,7 @@ func add(rev: [Int]) -> Int
     }
     return sum
 }
-number(value: 546312)
+var all = number(value: 546312)
+print(all)
 
 
