@@ -1,6 +1,6 @@
 import UIKit
 
-/*v ar name = [ " Mom", "Dad", "Wife", "Friend" ]
+/*  var name = [ " Mom", "Dad", "Wife", "Friend" ]
     var words = [ "I Miss You", "I Hate You", "I Sing You" ]
     for Name in name{
     print("\n\n" + Name)
@@ -13,6 +13,7 @@ import UIKit
     print()
     } */
 
+/*
 func number(value: Int) -> Int{
     var num = 0
     var array: [Int] = []
@@ -45,3 +46,26 @@ var all = number(value: 546312)
 print(all)
 
 
+let number: Int? = Optional.some(123)
+let noNumber: Int? = Optional.none
+print(number)
+*/
+
+
+
+
+class Exam {
+   var student: toppers?
+    //init(student : String) {
+       // <#statements#>
+   // }
+}
+class toppers {
+   var name = "Intelligent"
+}
+let stud = Exam()
+if let studname = stud.student?.name {
+   print("Student name is \(studname)")
+} else {
+   print("Student name cannot be retrieved")
+}
