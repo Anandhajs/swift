@@ -14,6 +14,8 @@ class ViewController: UIViewController , UIPageViewControllerDataSource , UIPage
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        super.viewDidLoad()
+//        self.view.backgroundColor = UIColor(patternImage: UIImage?(name: "bg")!)
         
         let page: [String] = [ "chatpter.1 chatpter.1 chatpter.1 chatpter.1 chatpter.1 chatpter.1 chatpter.1 chatpter.1 chatpter.1 chatpter.1 chatpter.1 chatpter.1 chatpter.1 chatpter.1 chatpter.1 chatpter.1 chatpter.1 chatpter.1 ",
         "chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 chapter.2 ",
@@ -28,13 +30,16 @@ class ViewController: UIViewController , UIPageViewControllerDataSource , UIPage
         }
         
     }
+   
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+    
         DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
             self.pageview()
     })
-        
+       
         }
 
     func pageview(){
