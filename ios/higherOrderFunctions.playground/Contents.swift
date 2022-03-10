@@ -47,19 +47,20 @@ import UIKit
     */
 
 
-    /*        // 3. compactMap
+  /*        // 3. compactMap
 
 
-        var values: [String?] = ["one","Two","Three","Four", nil,"Five", nil]
+        var values: [String] = ["2","5","Three","9","6"]
 
-        let uppercasedWords = values.compactMap {$0!.uppercased() }
-        print("After the compactmap function: ",uppercasedWords)
-
-    */
+        let compact: [Int] = values.compactMap { str in Int(str) }
+        print("After the compactmap function: ",compact)
+*/
+    
 
  
     /*        // 4 . flatMap
 
+ 
 
         var names1: [[String]] = [["anand", "kumar"],["java","web"],["front","back"]]
         var newNames = names1.flatMap{$0}
@@ -103,7 +104,7 @@ import UIKit
             // 8. Sort
 
     
-        let words: [String] = ["kumar", "home", "java", "swift", "vicky"]
+        let words: [Int] = [10,2,54,45,0,12,4,5]
         //let newWords = words.sorted()
         let newWords = words.sorted(by: > )
         print(newWords)
