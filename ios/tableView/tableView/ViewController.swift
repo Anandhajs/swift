@@ -48,7 +48,7 @@ extension ViewController: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "myTableCell") as! myTableViewCell
         let title = rows[indexPath.section][indexPath.row]
         cell.cellLabel.text = title
-        cell.cellImage.image = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8470588235)
+        cell.cellImage.image = UIImage(named: "grinder")
         return cell
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
