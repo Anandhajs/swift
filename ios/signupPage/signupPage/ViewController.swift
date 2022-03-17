@@ -7,6 +7,15 @@
 
 import UIKit
 
+struct Credential: Codable{
+    
+    var fName: String
+    let lName: String
+    let number : String
+    let password: String
+}
+
+
 enum signupError: Error {
     case invalidFirstName
     case invalidLastName
@@ -106,8 +115,40 @@ class ViewController: UIViewController {
             guard password == confirm else {
                 throw signupError.passwordDidNotMatched
             }
+            
+            if let data = UserDefaults.standard.value(forKey: "credentials") as? Data,let credentials: [Credential] = try? PropertyListDecoder().decode(Array<Credential>.self, from: data){
+                
+                var users = credentials
+                users.append(Credential(fName: first, lName: last, number: number, password: password))
+                
+                let encodeData = try? PropertyListEncoder().encode(users)
+                
+                UserDefaults.standard.set(encodeData, forKey: "credentials")
+                
+                self.dismiss(animated: true, completion: nil)
+                
+            } else {
+                let credential = Credential(fName: first, lName: last, number: number, password: password)
+                
+                let encodeData = try? PropertyListEncoder().encode(credential)
+                
+                UserDefaults.standard.set(encodeData, forKey: "credentials")
+                
+                self.dismiss(animated: true, completion: nil)
+                
+            }
+            
         }
+    
+    
+    @IBAction func loginPageToucg(_ sender: UIButton) {
         
+        
+        
+        
+        
+    }
+    
     }
     
 
