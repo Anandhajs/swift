@@ -226,12 +226,12 @@
         <!--Login Page-->
         <scene sceneID="9cF-hT-EUY">
             <objects>
-                <viewController id="oV4-ZB-IaO" customClass="loginViewController" customModule="signupPage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewID" id="oV4-ZB-IaO" customClass="loginViewController" customModule="signupPage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yap-hy-XiZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idG-Tk-EaQ">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idG-Tk-EaQ">
                                 <rect key="frame" x="20" y="293" width="374" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -278,6 +278,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="oV4-ZB-IaO" eventType="touchUpInside" id="3vh-Lf-3sS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Eg-jf-ipK"/>
@@ -308,6 +311,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login Page" id="WQI-rg-lpg"/>
+                    <connections>
+                        <outlet property="email" destination="ZDo-fb-UmX" id="zL3-xf-xLL"/>
+                        <outlet property="log" destination="idG-Tk-EaQ" id="zuj-pH-4un"/>
+                        <outlet property="passwordField" destination="c71-EU-xyV" id="RuW-uo-D59"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKT-IJ-IcB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

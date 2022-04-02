@@ -7,11 +7,8 @@
 
 import UIKit
 
-struct Credential: Codable{
-    
-    var fName: String
-    let lName: String
-    let number : String
+struct Credential: Codable,Equatable{
+    let username: String
     let password: String
 }
 
@@ -119,7 +116,7 @@ class ViewController: UIViewController {
             if let data = UserDefaults.standard.value(forKey: "credentials") as? Data,let credentials: [Credential] = try? PropertyListDecoder().decode(Array<Credential>.self, from: data){
                 
                 var users = credentials
-                users.append(Credential(fName: first, lName: last, number: number, password: password))
+                users.append(Credential(username: username, password: password))
                 
                 let encodeData = try? PropertyListEncoder().encode(users)
                 
@@ -128,7 +125,7 @@ class ViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
                 
             } else {
-                let credential = Credential(fName: first, lName: last, number: number, password: password)
+                let credential = Credential(username: username, password: password)
                 
                 let encodeData = try? PropertyListEncoder().encode(credential)
                 
@@ -144,6 +141,10 @@ class ViewController: UIViewController {
     @IBAction func loginPageToucg(_ sender: UIButton) {
         
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let vc = storyboard.instantiateViewController(identifier: "loginViewID")
+        self.navigationController?.pushViewController(vc, animated: true)
         
         
         

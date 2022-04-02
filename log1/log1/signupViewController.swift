@@ -99,7 +99,11 @@ class signupViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
             
         }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
+        let vc = storyboard.instantiateViewController(identifier: "signupID")
+        vc.view.backgroundColor = .systemPink
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     

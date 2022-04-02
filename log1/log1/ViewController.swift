@@ -105,8 +105,8 @@ class ViewController: UIViewController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let vc = storyboard.instantiateViewController(identifier: "TabViewControllerID")
-        
+        let vc = storyboard.instantiateViewController(identifier: "loginID")
+        vc.view.backgroundColor = .systemBlue
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
