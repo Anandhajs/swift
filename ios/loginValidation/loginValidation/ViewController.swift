@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
 enum loginError: Error {
     case invallidUserName
     case invalidPassword
     case noAccount
+    case emptyField
+    case passwordEmpty
     
     var localizedDescription: String{
         
@@ -21,6 +24,10 @@ enum loginError: Error {
             return "InvalidPassword"
         case .noAccount:
             return "Please verify Your Username and password"
+        case .emptyField:
+            return "Please Enter Email"
+        case .passwordEmpty:
+            return "Please Enter Password"
         }
         
     }
@@ -33,10 +40,15 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var passwordField: UITextField!
     
+    let delegate = UIApplication.shared.delegate as! AppDelegate
+    var context: NSManagedObjectContext?
+    
     let alertview = UIAlertController(title: "Error", message: "Some Error Occured", preferredStyle: .alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        context = delegate.persistentContainer.viewContext
        
         let closeAction = UIAlertAction(title: "close", style: .default) {
             (action) in
@@ -50,7 +62,8 @@ class ViewController: UIViewController {
     @IBAction func buttonTapped(_ sender: UIButton) {
         
         do {
-            try validateCredentials()
+            
+            try fetch()
         }catch{
             
         let loginerror = error as? loginError
@@ -61,49 +74,48 @@ class ViewController: UIViewController {
         }
     }
     
-        func validateCredentials() throws {
-        
+   private func fetch() throws {
         guard let email = emailField.text, email != "" else {
-            throw loginError.invallidUserName
+            throw loginError.emptyField
+            
         }
-        
         guard let password = passwordField.text, password != "" else {
-            throw loginError.invalidPassword
+            throw loginError.passwordEmpty
         }
-           
-        let data = UserDefaults.standard.value(forKey: "credentials") as! Data
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Registration")
+//        request.returnsObjectsAsFaults = false
+  //  let request: NSFetchRequest<Registration> = Registration.fetchRequest()
+ //   NSPersistentContainer.viewContext.perform {
         
-        if let users = try? PropertyListDecoder().decode(Array<Credential>.self, from: data){
+    
+        do{
+            let results = try context?.fetch(request)
             
-            let credential = Credential(username: email, password: password)
-            
-            for user in users{
-                
-                if user == credential{
-
+                for result in results as! [NSManagedObject]{
+                    
+                  if  emailField.text == result.value(forKey: "uname") as? String &&
+                        passwordField.text == result.value(forKey: "pass") as? String {
                     gotoTabBar()
-                   
-                    break
-                }
-               // print(user)
-                
-                if users.last! == user{
+                  }else{
                     throw loginError.noAccount
+                  }
+
                 }
-            }
-    
+        }catch{
+           print("Error...", error)
         }
-            }
-    
+    }
+   
     func gotoTabBar(){
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let vc = storyboard.instantiateViewController(identifier: "tabViewControllerID")
-        vc.view.backgroundColor = .systemRed
+        let vc = storyboard.instantiateViewController(identifier: "logViewControllerID")
+        vc.view.backgroundColor = .green
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
+    
     
 }
     

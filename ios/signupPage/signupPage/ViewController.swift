@@ -43,11 +43,11 @@ enum signupError: Error {
     }
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
-    @IBOutlet weak var numberField: UITextField!
+    @IBOutlet var numberField: UITextField!
     
     @IBOutlet weak var userName: UITextField!
     
@@ -66,9 +66,16 @@ class ViewController: UIViewController {
         }
         
         alertview.addAction(closeAction)
-       
+        numberField.keyboardType = .numberPad
+    
+        passwordField.keyboardType = .asciiCapableNumberPad
+        
+     numberField = UITextField()
+        numberField?.delegate = self
+        
     }
-
+    
+    
     @IBAction func signupButtonTapped(_ sender: Any) {
         
         do {
@@ -96,7 +103,8 @@ class ViewController: UIViewController {
                 
             }
             
-            guard let username = userName.text, username != "" else {
+            
+                guard let username = userName.text, username != "" else {
                 throw signupError.invalidUserName
             
             }
@@ -136,17 +144,21 @@ class ViewController: UIViewController {
             }
             
         }
-    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let invalidCharacter = CharacterSet(charactersIn: "0123456789").inverted
+        return (string.rangeOfCharacter(from: invalidCharacter) == nil)
+
+    }
     
     @IBAction func loginPageToucg(_ sender: UIButton) {
         
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let vc = storyboard.instantiateViewController(identifier: "loginViewID")
-        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = storyboard.instantiateViewController(withIdentifier: "loginViewID")
+        self.navigationController?.popViewController(animated: true)
         
-        
+    
         
     }
     

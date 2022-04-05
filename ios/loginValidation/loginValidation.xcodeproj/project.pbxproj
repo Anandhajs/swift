@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		780A9C2E27FC18040007518A /* logViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780A9C2D27FC18040007518A /* logViewController.swift */; };
+		782A410F27FB1A920078C04F /* test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 782A410D27FB1A920078C04F /* test.xcdatamodeld */; };
 		7867D4C427E454F100169BA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867D4C327E454F100169BA9 /* AppDelegate.swift */; };
 		7867D4C627E454F100169BA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867D4C527E454F100169BA9 /* SceneDelegate.swift */; };
 		7867D4C827E454F100169BA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867D4C727E454F100169BA9 /* ViewController.swift */; };
@@ -15,10 +17,11 @@
 		7867D4D027E454F200169BA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7867D4CE27E454F200169BA9 /* LaunchScreen.storyboard */; };
 		7867D4D927E4746500169BA9 /* signupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867D4D827E4746500169BA9 /* signupViewController.swift */; };
 		7873321327EC2F6400214EDC /* signViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7873321227EC2F6400214EDC /* signViewController.swift */; };
-		7873321727EC373400214EDC /* tabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7873321627EC373400214EDC /* tabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		780A9C2D27FC18040007518A /* logViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logViewController.swift; sourceTree = "<group>"; };
+		782A410E27FB1A920078C04F /* test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = test.xcdatamodel; sourceTree = "<group>"; };
 		7867D4C027E454F100169BA9 /* loginValidation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = loginValidation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7867D4C327E454F100169BA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7867D4C527E454F100169BA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,7 +32,6 @@
 		7867D4D127E454F200169BA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7867D4D827E4746500169BA9 /* signupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signupViewController.swift; sourceTree = "<group>"; };
 		7873321227EC2F6400214EDC /* signViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signViewController.swift; sourceTree = "<group>"; };
-		7873321627EC373400214EDC /* tabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,12 +68,13 @@
 				7867D4C527E454F100169BA9 /* SceneDelegate.swift */,
 				7867D4C727E454F100169BA9 /* ViewController.swift */,
 				7867D4C927E454F100169BA9 /* Main.storyboard */,
-				7873321627EC373400214EDC /* tabViewController.swift */,
+				780A9C2D27FC18040007518A /* logViewController.swift */,
 				7873321227EC2F6400214EDC /* signViewController.swift */,
 				7867D4D827E4746500169BA9 /* signupViewController.swift */,
 				7867D4CC27E454F200169BA9 /* Assets.xcassets */,
 				7867D4CE27E454F200169BA9 /* LaunchScreen.storyboard */,
 				7867D4D127E454F200169BA9 /* Info.plist */,
+				782A410D27FB1A920078C04F /* test.xcdatamodeld */,
 			);
 			path = loginValidation;
 			sourceTree = "<group>";
@@ -147,10 +150,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7867D4C827E454F100169BA9 /* ViewController.swift in Sources */,
+				780A9C2E27FC18040007518A /* logViewController.swift in Sources */,
 				7867D4C427E454F100169BA9 /* AppDelegate.swift in Sources */,
 				7867D4D927E4746500169BA9 /* signupViewController.swift in Sources */,
+				782A410F27FB1A920078C04F /* test.xcdatamodeld in Sources */,
 				7873321327EC2F6400214EDC /* signViewController.swift in Sources */,
-				7873321727EC373400214EDC /* tabViewController.swift in Sources */,
 				7867D4C627E454F100169BA9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +355,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		782A410D27FB1A920078C04F /* test.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				782A410E27FB1A920078C04F /* test.xcdatamodel */,
+			);
+			currentVersion = 782A410E27FB1A920078C04F /* test.xcdatamodel */;
+			path = test.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7867D4B827E454F000169BA9 /* Project object */;
 }

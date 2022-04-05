@@ -1,13 +1,13 @@
 //
-//  tabViewController.swift
+//  logViewController.swift
 //  loginValidation
 //
-//  Created by Keerthi on 24/03/22.
+//  Created by Keerthi on 05/04/22.
 //
 
 import UIKit
 
-class tabViewController: UITabBarController {
+class logViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
