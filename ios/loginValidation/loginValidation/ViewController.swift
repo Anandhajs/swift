@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         context = delegate.persistentContainer.viewContext
        
         let closeAction = UIAlertAction(title: "close", style: .default) {
@@ -82,27 +82,28 @@ class ViewController: UIViewController {
         guard let password = passwordField.text, password != "" else {
             throw loginError.passwordEmpty
         }
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Registration")
-//        request.returnsObjectsAsFaults = false
-  //  let request: NSFetchRequest<Registration> = Registration.fetchRequest()
- //   NSPersistentContainer.viewContext.perform {
-        
     
+    let request: NSFetchRequest<Registration>
+    request = Registration.fetchRequest()
+  let predicate = NSPredicate(format: "uname=%@  \(uname)")
+    request.predicate = predicate
         do{
             let results = try context?.fetch(request)
             
-                for result in results as! [NSManagedObject]{
-                    
-                  if  emailField.text == result.value(forKey: "uname") as? String &&
-                        passwordField.text == result.value(forKey: "pass") as? String {
+            
+           // for result in results as NSManagedObject{
+            if emailField.text == results?.value(forKey: "uname") as? String {
+                  //if ( emailField.text == result.value(forKey: "uname") as? String &&
+                     //  passwordField.text == result.value(forKey: "pass") as? String ){
                     gotoTabBar()
                   }else{
                     throw loginError.noAccount
                   }
 
-                }
+             //   }
+            
         }catch{
-           print("Error...", error)
+            print("Error...", error.localizedDescription)
         }
     }
    

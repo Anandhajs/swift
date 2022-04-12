@@ -280,9 +280,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTQ-Dg-og1">
-                                <rect key="frame" x="139" y="526" width="137" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTQ-Dg-og1">
+                                <rect key="frame" x="139" y="526" width="137" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="GoTo Login..">
                                     <color key="titleColor" systemColor="labelColor"/>
@@ -295,9 +294,12 @@
                         <viewLayoutGuide key="safeArea" id="fmM-HO-Sqp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="iTQ-Dg-og1" firstAttribute="leading" secondItem="fmM-HO-Sqp" secondAttribute="leading" constant="139" id="GJe-r3-I92"/>
+                            <constraint firstItem="fmM-HO-Sqp" firstAttribute="trailing" secondItem="iTQ-Dg-og1" secondAttribute="trailing" constant="138" id="IS9-dc-kWs"/>
                             <constraint firstItem="NWB-gv-Dha" firstAttribute="top" secondItem="fmM-HO-Sqp" secondAttribute="top" constant="350" id="Jyu-Ve-oOT"/>
                             <constraint firstItem="NWB-gv-Dha" firstAttribute="leading" secondItem="fmM-HO-Sqp" secondAttribute="leading" constant="20" id="OUp-99-UWk"/>
                             <constraint firstItem="fmM-HO-Sqp" firstAttribute="trailing" secondItem="NWB-gv-Dha" secondAttribute="trailing" constant="20" id="evK-YF-czi"/>
+                            <constraint firstItem="iTQ-Dg-og1" firstAttribute="top" secondItem="NWB-gv-Dha" secondAttribute="bottom" constant="92" id="uJN-Hy-1Zo"/>
                         </constraints>
                     </view>
                 </viewController>
